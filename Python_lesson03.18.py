@@ -12,6 +12,5 @@ x = int(input('Введите искомое число: '))
 a = list(set(a))
 for j in range(0, 99):
     for i in range(len(a)):
-        # print(a[i])
         if a[i] == x + j or a[i] == x - j:
             print('Самое близкое число: ', a[i])
