@@ -6,11 +6,25 @@
 6
 -> 5'''
 from random import randint
-a = [randint(1, 99) for i in range(int(input('Введите размер массива: ')))]
-print(a)
-x = int(input('Введите искомое число: '))
-a = list(set(a))
-for j in range(0, 99):
-    for i in range(len(a)):
-        if a[i] == x + j or a[i] == x - j:
-            print('Самое близкое число: ', a[i])
+input_set = [randint(1, 99) for i in range(int(input('Введите размер массива: ')))]
+print(input_set)
+num = int(input('Введите искомое число: '))
+input_set = set(input_set)
+dif = 0
+if num > max(input_set):
+    print(max(input_set))
+elif num < min(input_set):
+    print(min(input_set))
+else:
+    while True:
+        if num - dif in input_set and num + dif in input_set and num - dif != num + dif:
+            print(num - dif, num + dif)
+            break
+        elif num - dif in input_set:
+            print(num - dif)
+            break
+        elif num + dif in input_set:
+            print(num + dif)
+            break
+        else:
+            dif += 1
